@@ -1,0 +1,98 @@
+/* .error {
+  visibility: hidden !important;
+  height: 0 !important;
+  max-height: 0;
+  display: none !important;
+}
+
+#app {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+#testconfig {
+  width: 50%;
+  height: 300px;
+  position: absolute;
+  background: white;
+  z-index: 9;
+}
+#post_text {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+}
+
+#new_post {
+  float: right;
+}
+
+#username {
+  float: right;
+}
+
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+
+.post_title {
+  font-weight: bold;
+}
+
+.post_like_button {
+  float: right;
+}
+
+.post_delete_button {
+  float: right;
+}
+
+.post_likes_container {
+} */
+
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border-color: none;
+} */
+
+body{
+  background-image:url(/icons/back4.png);
+  background-size: 1100px ;
+  height: 800px;
+}
+input{
+  display: flex;
+  flex-direction: column;
+}
+
+h1{
+  background: darkgray;
+  padding-left: 400px;
+  width: 800px;
+  border-radius: 15px;
+}
+
+.form{
+  margin-left: 500px;
+  padding-left: 30px;
+  padding-bottom: 40px;
+  background: bisque;
+  font-size: medium;
+  border-radius: 7px;
+  border-style: double;
+}
+
+button{
+  border-style: outset;
+}
+button:hover{
+  background-color:darksalmon;
+  cursor: pointer;
+}
