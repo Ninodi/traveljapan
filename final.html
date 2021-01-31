@@ -1,73 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Japan</title>
-    <link rel="stylesheet" href="style1.css">
-</head>
-<body>
-    <nav>
-        <div class="top-side">
-                <h4>Menu</h4>
-        </div>
-        <div class="bottom-side">
-            <ul>
-                <li>
-                    <div>
-                        <a href="final.html">Home</a>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <a href="index.html">Feedbacks</a>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <a href="final.html">Contact</a>
-                     </div>
-                </li>
-                <li>
-                    <div>
-                        <a href="register.html">Sign Up</a>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <a href="login.html">Log In</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <header>
-        <div class="welcome">
-            <div class="search">
-                <input id="ser" type="text" placeholder="search">
-            </div>
-            <div class="name">
-                <h1><em>Travel Japan</em></h1>
-            </div>
-        </div>
-    </header>
-    <main>
-        <h1>Do you want to spend an amazing time in Japan?<br>Sign up right now to book a hotel room! <br> Log in if you already have an account!</h1>
-        <div>
-            <img src="icons/hotel1.png" alt=""> 
-        </div>
-        <div>
-            <img src="icons/hotel2.png" alt="">
-        </div>
-        <div>
-            <img src="icons/hotel3.png" alt="">
-        </div>
-        <div>
-            <img src="icons/hotel4.png" alt="">
-        </div>
-        <div>
-            <img src="icons/hotel5.png" alt="" width="1200px">
-        </div>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Travel Japan</title>
+		<link rel="stylesheet" href="style1.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="top-side">
+				<h4>Menu</h4>
+			</div>
+			<div class="bottom-side">
+				<ul>
+					<li>
+						<div>
+							<a href="final.html">Home</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a href="index.html">Feedbacks</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a href="final.html">Contact</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a href="register.html">Sign Up</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<a href="login.html">Log In</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<header>
+			<div class="welcome">
+				<div class="search">
+					<input id="ser" type="text" placeholder="search" />
+				</div>
+				<div class="name">
+					<h1><em>Travel Japan</em></h1>
+				</div>
+			</div>
+		</header>
+		<main>
+			<h1>
+				Do you want to spend an amazing time in Japan?<br />Sign up
+				right now to book a hotel room! <br />
+				Log in if you already have an account!
+			</h1>
+			<form
+				id="image-upload-form"
+				action="get"
+				enctype="multipart/form-data"
+			>
+				<label for="image-upload"
+					>გთხოვთ ატვირთოთ თქვენი საყვარელი ფოტო, რომელიც
+					იაპონიასთანაა კავშირში ^_^ <br><span>დააკლიკეთ აქ!</span></label
+				>
+				<input type="file" name="image-upload" id="image-upload" />
+			</form>
+			<div class="image-container" id="image-container">
+				<div class="image-container-img">
+					<img src="icons/hotel1.png" alt="" />
+				</div>
+				<div class="image-container-img">
+					<img src="icons/hotel2.png" alt="" />
+				</div>
+				<div class="image-container-img">
+					<img src="icons/hotel3.png" alt="" />
+				</div>
+				<div class="image-container-img">
+					<img src="icons/hotel4.png" alt="" />
+				</div>
+				<div class="image-container-img">
+					<img src="icons/hotel5.png" alt="" width="1200px" />
+				</div>
+			</div>
+		</main>
+		<script>
+			const imgUploadForm = document.getElementById('image-upload-form')
+			const imgInput = document.getElementById('image-upload')
+			const imgContainer = document.getElementById('image-container')
+
+			imgUploadForm.addEventListener('submit', (e) => e.preventDefault())
+
+			imgInput.addEventListener('input', async (e) => {
+				// console.log(imgInput.files[0]);
+				var reader = new FileReader()
+				reader.readAsDataURL(imgInput.files[0])
+				reader.onload = () => {
+					let src = reader.result
+                    let div = document.createElement('div')
+                    div.classList.add('image-container-img')
+					div.innerHTML = `<img src="${src}" alt="${imgInput.files[0].name}" />`
+					imgContainer.insertBefore(
+						div,
+						imgContainer.querySelector('div')
+                    )
+                    setTimeout(() => {
+                        div.classList.add('new')
+                    }, 1)
+                    setTimeout(() => {
+                        div.classList.add('removingnew')
+                    }, 2001)
+				}
+			});
+		</script>
+	</body>
 </html>
